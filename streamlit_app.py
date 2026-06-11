@@ -27,7 +27,9 @@ st.write("Ask questions about rules, policies, acts, and regulations.")
 # ----------------------------
 @st.cache_resource
 def load_db():
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(
+        api_key=st.secrets["OPENAI_API_KEY"]
+    )
 
     db = Chroma(
         persist_directory="vector_db",
@@ -43,7 +45,7 @@ db = load_db()
 # ----------------------------
 llm = ChatOpenAI(
     model="gpt-4o-mini",   # you can upgrade later
-    temperature=0
+    api_key=st.secrets["OPENAI_API_KEY"]
 )
 
 # ----------------------------
