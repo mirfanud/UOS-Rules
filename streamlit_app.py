@@ -1,20 +1,18 @@
 import streamlit as st
 import os
 
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
 
 # ----------------------------
 # Load environment variables
 # ----------------------------
-load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 # ----------------------------
 # Streamlit UI setup
 # ----------------------------
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
+
 st.set_page_config(
     page_title="UOS Rules Assistant",
     page_icon="🎓",
