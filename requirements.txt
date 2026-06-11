@@ -7,3 +7,4 @@ chromadb
 pypdf
 python-dotenv
 tiktoken
+protobuf==3.20.3
